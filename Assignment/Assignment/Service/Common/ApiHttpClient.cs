@@ -1,15 +1,18 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Assignment.Service.Common
 {
+    /// <seealso cref="Assignment.Service.Common.BaseClient" />
+    /// <seealso cref="Assignment.Service.Common.IApiHttpClient" />
     public class ApiHttpClient : BaseClient, IApiHttpClient
     {
+        /// <summary>
+        /// Gets the asynchronous request.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="url">The URL.</param>
+        /// <returns></returns>
         public async Task<T> GetAsyncRequest<T>(string url)
         {
             var returnResult = default(T);

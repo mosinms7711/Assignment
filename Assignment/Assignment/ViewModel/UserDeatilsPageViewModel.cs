@@ -1,33 +1,38 @@
 ﻿using Assignment.Model;
 using Assignment.Navigation;
 using Assignment.ViewModel.Common;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Assignment.ViewModel
 {
+    /// <seealso cref="Assignment.ViewModel.Common.BaseViewModel" />
     public class UserDeatilsPageViewModel: BaseViewModel
     {
         #region Private Properties
+        /// <summary>
+        /// The user details
+        /// </summary>
         private UserDetailsModel userDetails;
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserDeatilsPageViewModel"/> class.
+        /// </summary>
+        /// <param name="pageNavigation">The page navigation.</param>
         public UserDeatilsPageViewModel(IPageNavigationService pageNavigation) : base(pageNavigation)
         {
-            InitializeCommand();
+
         }
         #endregion
 
-        #region Command
-        public ICommand GoBackAsyncCommand { get; set; }
-        #endregion
 
         #region Public Properties
+        /// <summary>
+        /// Gets or sets the user details.
+        /// </summary>
+        /// <value>
+        /// The user details.
+        /// </value>
         public UserDetailsModel UserDetails
         {
             get => userDetails;
@@ -36,18 +41,6 @@ namespace Assignment.ViewModel
                 userDetails = value;
                 RaisePropertyChanged(nameof(UserDetails));
             }
-        }
-        #endregion
-
-        #region Private Methods
-        void InitializeCommand()
-        {
-            GoBackAsyncCommand = new Command(async () => await GoBackAsync());
-        }
-
-        async Task GoBackAsync()
-        {
-            await pageNavigation.GoBackAsync();
         }
         #endregion
     }

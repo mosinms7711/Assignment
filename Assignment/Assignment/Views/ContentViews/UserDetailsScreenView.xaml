@@ -4,41 +4,58 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
-        <Grid ColumnDefinitions="Auto,Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
-            <Frame
-                Grid.Row="0"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                Padding="0"
-                CornerRadius="25"
-                HorizontalOptions="Center"
-                IsClippedToBounds="True">
-                <Image
+        <!--  Main Frame  -->
+        <Frame
+            Padding="20"
+            BorderColor="LightGray"
+            CornerRadius="10"
+            IsClippedToBounds="True">
+            <Grid ColumnDefinitions="Auto,Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+
+                <!--  Profile Image  -->
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Padding="0"
+                    CornerRadius="100"
                     HorizontalOptions="Center"
-                    Source="{Binding UserDetails.ProfileImageSource, Mode=TwoWay}"
-                    VerticalOptions="Center" />
-            </Frame>
-            <Label
-                Grid.Row="1"
-                Grid.Column="0"
-                Text="Name : " />
-            <Label Grid.Row="1" Grid.Column="1">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="{Binding UserDetails.FirstName}" />
-                        <Span Text=" " />
-                        <Span Text="{Binding UserDetails.LastName}" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <Label
-                Grid.Row="2"
-                Grid.Column="0"
-                Text="Email Id : " />
-            <Label
-                Grid.Row="2"
-                Grid.Column="1"
-                Text="{Binding UserDetails.EmailId}" />
-        </Grid>
+                    IsClippedToBounds="True">
+                    <Image
+                        HorizontalOptions="Center"
+                        Source="{Binding UserDetails.ProfileImageSource, Mode=TwoWay}"
+                        VerticalOptions="Center" />
+                </Frame>
+
+                <!--  Name Key  -->
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Name : " />
+
+                <!--  Name Value  -->
+                <Label Grid.Row="1" Grid.Column="1">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding UserDetails.FirstName}" />
+                            <Span Text=" " />
+                            <Span Text="{Binding UserDetails.LastName}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!--  Email Key  -->
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Email : " />
+
+                <!--  Email Value  -->
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Text="{Binding UserDetails.EmailId}" />
+            </Grid>
+        </Frame>
     </ContentView.Content>
 </ContentView>

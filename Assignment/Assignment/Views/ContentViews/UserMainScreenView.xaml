@@ -2,13 +2,13 @@
 <ContentView
     x:Class="Assignment.Views.ContentViews.UserMainScreenView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:control="clr-namespace:Assignment.Control">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentView.Content>
-        <StackLayout>
+        <StackLayout Padding="20" HorizontalOptions="FillAndExpand">
+            <!--  user Details Collection view  -->
             <CollectionView
                 ItemsSource="{Binding UsersList, Mode=TwoWay}"
-                RemainingItemsThreshold="0"
+                RemainingItemsThreshold="6"
                 RemainingItemsThresholdReachedCommand="{Binding LoadMoreUserAsyncCommand}"
                 SelectedItem="{Binding Selecteduser, Mode=TwoWay}"
                 SelectionChangedCommand="{Binding UserSelectedCommand, Mode=TwoWay}"
@@ -20,6 +20,8 @@
                             ColumnSpacing="20"
                             RowDefinitions="Auto,Auto,Auto"
                             RowSpacing="10">
+
+                            <!--  Profile Image  -->
                             <Frame
                                 Grid.Row="0"
                                 Grid.RowSpan="2"
@@ -35,6 +37,8 @@
                                     Source="{Binding ProfileImageSource, Mode=TwoWay}"
                                     VerticalOptions="Center" />
                             </Frame>
+
+                            <!--  Name  -->
                             <Label Grid.Row="0" Grid.Column="1">
                                 <Label.FormattedText>
                                     <FormattedString>
@@ -44,6 +48,8 @@
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
+
+                            <!--  Email Id  -->
                             <Label
                                 Grid.Row="1"
                                 Grid.Column="1"
@@ -60,6 +66,19 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <!--  Additional Load More Button  -->
+            <Button Command="{Binding LoadMoreUserAsyncCommand}" Text="Load More Users" />
+
+            <!--  App counter  -->
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Session :" />
+                        <Span Text="{Binding AppCount}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
