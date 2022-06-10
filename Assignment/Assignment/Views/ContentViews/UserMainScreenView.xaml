@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Assignment.Views.ContentViews.UserMainScreenView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:control="clr-namespace:Assignment.Control">
+    <ContentView.Content>
+        <StackLayout>
+            <CollectionView
+                ItemsSource="{Binding UsersList, Mode=TwoWay}"
+                RemainingItemsThreshold="0"
+                RemainingItemsThresholdReachedCommand="{Binding LoadMoreUserAsyncCommand}"
+                SelectedItem="{Binding Selecteduser, Mode=TwoWay}"
+                SelectionChangedCommand="{Binding UserSelectedCommand, Mode=TwoWay}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid
+                            ColumnDefinitions="Auto,Auto"
+                            ColumnSpacing="20"
+                            RowDefinitions="Auto,Auto,Auto"
+                            RowSpacing="10">
+                            <Frame
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                Padding="0"
+                                CornerRadius="25"
+                                HeightRequest="50"
+                                HorizontalOptions="Center"
+                                IsClippedToBounds="True"
+                                WidthRequest="50">
+                                <Image
+                                    HorizontalOptions="Center"
+                                    Source="{Binding ProfileImageSource, Mode=TwoWay}"
+                                    VerticalOptions="Center" />
+                            </Frame>
+                            <Label Grid.Row="0" Grid.Column="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding FirstName}" />
+                                        <Span Text=" " />
+                                        <Span Text="{Binding LastName}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding EmailId}" />
+                            <BoxView
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="gray"
+                                HeightRequest="2"
+                                HorizontalOptions="FillAndExpand"
+                                Color="Gray" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
