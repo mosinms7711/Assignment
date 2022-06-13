@@ -22,19 +22,8 @@ namespace Assignment.Views
         {
             this.BindingContext = userMainPageViewModel;
             userMainPageViewModel?.InitAsyncCommand?.Execute(this);
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// When overridden, allows application developers to customize behavior immediately prior to the <see cref="T:Xamarin.Forms.Page" /> becoming visible.
-        /// </summary>
-        /// <remarks>
-        /// To be added.
-        /// </remarks>
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
             userMainPageViewModel?.LoadAppCounterAsyncCommand?.Execute(this);
+            InitializeComponent();
         }
     }
 }

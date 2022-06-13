@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Threading.Tasks;
 
 namespace Assignment.Service.Common
@@ -16,8 +17,8 @@ namespace Assignment.Service.Common
         public async Task<T> GetAsyncRequest<T>(string url)
         {
             var returnResult = default(T);
-            var client = GetHttpClient();
 
+            var client = GetHttpClient();
             var responseMessage = await client.GetAsync(url);
 
             if (responseMessage.IsSuccessStatusCode)

@@ -6,7 +6,7 @@
     xmlns:contentviews="clr-namespace:Assignment.Views.ContentViews">
     <ContentPage.Content>
         <StackLayout>
-            <contentviews:UserDetailsScreenView />
+            <contentviews:UserDetailsScreenView Padding="20" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

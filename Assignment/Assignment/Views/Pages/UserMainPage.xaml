@@ -3,7 +3,8 @@
     x:Class="Assignment.Views.UserMainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:contentviews="clr-namespace:Assignment.Views.ContentViews">
+    xmlns:contentviews="clr-namespace:Assignment.Views.ContentViews"
+    Title="User">
     <ContentPage.Content>
         <StackLayout>
             <contentviews:UserMainScreenView />
