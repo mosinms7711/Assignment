@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Assignment.Views.Pages.DownloadFilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button
+                x:Name="btnDownloadPdf"
+                Clicked="btnDownloadPdf_Clicked"
+                Text="Download PDF" />
+            <Button
+                x:Name="btnDownloadPng"
+                Clicked="btnDownloadPng_Clicked"
+                Text="Download PNG" />
+            <Button
+                x:Name="btnDownloadJpg"
+                Clicked="btnDownloadJpg_Clicked"
+                Text="Download JPG" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

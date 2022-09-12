@@ -1,5 +1,6 @@
 ﻿using Assignment.Common;
 using Assignment.Views;
+using Assignment.Views.Pages;
 using GalaSoft.MvvmLight.Ioc;
 using Xamarin.Forms;
 
@@ -15,7 +16,7 @@ namespace Assignment
         {
             InitializeComponent();
             BootStrapper.Instance.Initialize();
-            MainPage = new NavigationPage(new UserMainPage());
+            MainPage = new NavigationPage(new DownloadFilePage());
         }
 
 
